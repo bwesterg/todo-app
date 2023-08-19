@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap');
+
 body {
   background-color: #21ffb43d;
+  font-family: 'Roboto';
 }
 
 .App{
@@ -33,7 +36,7 @@ body {
 
 .todo-item {
   width: 200px;
-  height: auto;
+  height: max-content;
   box-shadow: 0 20px 20px -10px rgb(54, 81, 76);
   text-align: center;
   border-radius: 6px;
@@ -43,10 +46,29 @@ body {
 
 .delete-button {
   color: white;
-  background-color: red;
+  background-color: rgb(212, 136, 136);
+  font-weight: bold;
+
 }
 
-.urgent-input {
+.edit-button {
+  color: white;
+  background-color: rgb(124, 124, 206);
+  font-weight: bold;
+}
+
+.close-button{
+  background-color: rgb(212, 136, 136);
+  color: white;
+  font-weight: bold;
+}
+
+.urgent-group {
   display: flex;
   justify-content: center;
+}
+
+.input-group .checkbox {
+  position: relative;
+  top: 3px;
 }
