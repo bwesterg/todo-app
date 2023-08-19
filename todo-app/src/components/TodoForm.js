@@ -79,9 +79,9 @@ export default class TodoForm extends Component {
             <form className="todo-form" onSubmit={this.handleSubmit}>
                 {this.props.todo ? <h2>Edit Todo</h2> : <h2>Create a New Todo</h2>}
                 <label>Title</label>
-                <input type="text" name="title" value={title} onChange={this.handleChange} />
+                <input type="text" placeholder="" name="title" value={title} onChange={this.handleChange} />
                 <label>Content</label>
-                <input type="text" name="content" value={content} onChange={this.handleChange} />
+                <input type="text" name="content" placeholder="" value={content} onChange={this.handleChange} />
                 <div className="input-group">
                     <label>Urgent</label>
                     <input 
