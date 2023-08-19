@@ -1,15 +1,52 @@
+body {
+  background-color: #21ffb43d;
+}
+
+.App{
+  text-align: center;
+}
+
+.todo-form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: 250px;
+  margin: auto;
+  justify-content: space-between;
+  background-color: white;
+  padding: 20px;
+  border-radius: 6px;
+  margin-bottom: 25px;
+  box-shadow: 0 20px 20px -10px rgb(54, 81, 76);
+}
+
 .todo-list {
   display:flex;
   flex-flow: row wrap;
   list-style-type: none;
   justify-content: space-between;
   width: 90%;
+  margin: 0 auto;
+  padding-inline-start: 0;
+  margin-bottom: 20px;
 }
 
 .todo-item {
   width: 200px;
   height: auto;
-  box-shadow: 0 20px 20px -10px gray;
+  box-shadow: 0 20px 20px -10px rgb(54, 81, 76);
   text-align: center;
   border-radius: 6px;
+  background-color: white;
+  padding: 10px;
+}
+
+.delete-button {
+  color: white;
+  background-color: red;
+}
+
+.urgent-input {
+  display: flex;
+  justify-content: center;
 }
