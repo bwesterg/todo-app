@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+
+Todo.create(title: "First Todo", content: "This is my first todo item", urgent: false, done: false)
+Todo.create(title: "Second Todo", content: "Second todo item", urgent: false, done: false)
+Todo.create(title: "Third Todo", content: "Third todo item", urgent: true, done: false)
