@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import TodoContainer from './components/TodoContainer';
 import TodoForm from './components/TodoForm';
+import { patchTodo, postTodo, deleteTodo } from './helpers';
+
 const todosUrl = "http://127.0.0.1:3000/todos";
 
 class App extends Component {
@@ -19,6 +21,7 @@ class App extends Component {
     fetch(todosUrl)
       .then(response => response.json())
       .then(todos => this.setState({todos}))     
+      //keeping this fetch in App.js, rather than moving to helps file b/c I am setting state
   }
 
   addTodo = (newTodo) => {
@@ -26,13 +29,15 @@ class App extends Component {
       todos: [...this.state.todos, newTodo]
     })
 
-    fetch(todosUrl, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/JSON"
-      },
-      body: JSON.stringify(newTodo)
-    })
+    postTodo(newTodo)
+  }
+
+  updateTodo = (updatedTodo) => {
+    let todos = this.state.todos.map(todo => todo.id === updatedTodo.id ? updatedTodo : todo)
+
+    this.setState({ todos })
+
+    patchTodo(updatedTodo)
   }
 
   deleteTodo = (id) => {
@@ -41,18 +46,16 @@ class App extends Component {
       todos: filtered
     })
 
-    fetch(todosUrl + "/" + id, {
-      method: "DELETE"
-    })
+    deleteTodo(id)
   }
   
 
   render(){
     return (
       <div className="App">
-        <h1>Todo App</h1>
-        <TodoForm addTodo={this.addTodo} />
-        <TodoContainer todos={this.state.todos} deleteTodo={this.deleteTodo}/>
+        <h1>ToDo App</h1>
+        <TodoForm submitAction={this.addTodo} />
+        <TodoContainer todos={this.state.todos} updateTodo={this.updateTodo} deleteTodo={this.deleteTodo} />
       </div>
     );
   }
